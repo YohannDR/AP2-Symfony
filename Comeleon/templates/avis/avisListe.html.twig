@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis{% endblock %}
+
+{% block body %}
+{# Foreach sur chaque avis #}
+{% if avis|length != 0 %}
+{% for A in avis %}
+<div style="margin-left:7%; margin-left:7%; margin-top:3%">
+<div class="card border-secondary mb-3" style="max-width: 80rem;">
+  {# Ajoute le nom d'utilisateur #}
+  <div class="card-header" style="font-size:20px;">Avis de {{ A.nomUser }}</div>
+  <div class="card-body">
+    {# Ajoute titre de l'avis #}
+    <h4 class="card-title">Titre : {{ A.titre }}</h4>
+    {# Ajoute commentaire de l'avis avis nl2br pour les caractères d'échappemnts #}
+    <p class="card-text">Commentaire : {{ A.commentaire|nl2br }}</p>
+  </div>
+</div>
+</div>
+{% endfor %}
+{% else %}
+</br>
+<center><h1>Aucun avis disponible</h1></center>
+{% endif %}
+</br>
+{# Bouton pour ajouter un avis #}
+<center><div class="d-grid gap-2" style="width:10%">
+  <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='/avis/ajouter';">Écrire un avis</button>
+</div></center>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Ajouter un avis{% endblock %}
+
+{% block body %}
+<center>
+</br>
+{# Si word est non vide, un mot interdit à été détecté #}
+{% if error is not empty %}
+<div class="text-danger" style="font-size:25px">Un mot banni a été détecté ! (Mot invalide : {{ error }})</div>
+{% endif %}
+{# Affichage de la form #}
+{{ form_start(form) }}
+</br>
+{{ form_row(form.nom_user, {'attr' : {'placeholder': 'Nom d\'utilisateur'}}) }}
+</br>
+{{ form_row(form.titre, {'attr' : {'placeholder': 'Titre de l\'avis'}}) }}
+</br>
+{{ form_row(form.commentaire, {'attr' : {'placeholder': 'Commentaire'}}) }}
+</br>
+<div style="text-align:center">
+{{ form_row(form.submit) }}
+</div>
+</br>
+{{ form_end(form) }}
+</div></center>
+</br>
+{% endblock %}

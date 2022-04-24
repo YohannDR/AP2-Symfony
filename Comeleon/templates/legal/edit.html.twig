@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Modifier l'Identité{% endblock %}
+
+{% block body %}
+<center>
+<div style="width:85%; text-align:left;">
+{# Affichage de la form #}
+{{ form_start(form) }}
+<br>
+{{ form_row(form.nom) }}
+<br>
+{{ form_row(form.adresse) }}
+<br>
+{{ form_row(form.proprietaire) }}
+<br>
+{{ form_row(form.responsablePublication) }}
+<br>
+{{ form_row(form.concepteur) }}
+<br>
+{{ form_row(form.animation) }}
+<br>
+{{ form_row(form.hebergeur) }}
+<br>
+<div style="text-align: center;">
+{{ form_row(form.submit) }}
+</div>
+</br>
+{{ form_end(form) }}
+</div>
+</center>
+</br>
+{% endblock %}

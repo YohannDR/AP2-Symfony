@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="container">
+    <h1>Page de contact</h1>
+
+    {{ form_start(formContact) }}
+    <br>
+
+    {{ form_row(formContact.nom, {'attr': {placeholder: "Votre nom"}}) }}
+<br>
+    {{ form_row(formContact.prenom, {'attr': {placeholder: "Votre prénom"}}) }}
+<br>
+    {{ form_row(formContact.mail, {'attr': {placeholder: "Votre Email"}}) }}
+<br>
+    {{ form_row(formContact.telephone, {'attr': {placeholder: "Votre numéro de téléphone"}}) }}
+<br>
+    {{ form_row(formContact.description, {'attr': {placeholder: "Votre message"}}) }}
+
+    <br><br>
+
+    <button type="submit" class="btn btn-success">Envoyer le message</button>
+
+    {{ form_end(formContact) }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toutes les prestations{% endblock %}
+
+{% block body %}
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/prestation/new">Ajouter une prestation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-right" href="/panier">Voir le panier</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+  </nav>
+</body>
+
+<div class="container">
+    <div class="grid">
+        {% for prestation in prestations %}
+            {% include 'prestation/_card.html.twig' with {prestation: prestation} only %}
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<br><br>
+
+{% endblock %}

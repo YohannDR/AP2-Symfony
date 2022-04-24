@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PresentationController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div class="container">
+    <div id="banner" class="page-header">
+        <center><h1>Présentations</h1></center>
+        <p class="lead text-center"> voici une petite presentation</p>
+    </div>
+</div>
+</br />
+<div class="container-lg">
+    <div class="row vignets">
+        <div class="col-md-6"><img class="img-responsive" src="https://cdn.pixabay.com/photo/2021/02/26/09/04/man-6051163_960_720.jpg"></div>
+        <div class="col-md-6">
+            <h3> Mr.X </h3>
+            <p>Age : 26 ans</P>
+            <P>Status : photographe</p>
+            <p>Spécialité : mariage, Bar-mitzvah</p>
+        </div>
+    </div>
+    </br />
+    <div class="row vignets">
+        <div class="col-md-6">
+            {% for presentation in presentations %}
+            {% if presentation.id == 1 %}
+                <h3> {{ presentation.name }}</h3>
+                <p> Age : {{ presentation.age }} ans</p>
+                <p> Présentation de l'activité : {{ presentation.PresentActivite}}</p>
+        </div>
+        <div class="col-md-6"><img class="img-responsive" src={{ presentation.img}}></div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    </br />
+    <div class="row vignets">
+            {% for presentation in presentations %}
+            {% if presentation.id == 2 %}
+        <div class="col-md-6"><img class="img-responsive" src={{ presentation.img}}></div>
+        <div class="col-md-6">
+            <h3> {{ presentation.name }}</h3>
+            <p> Age : {{ presentation.age }}ans</p>
+            <p> Présentation de l'activité : {{ presentation.PresentActivite}}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

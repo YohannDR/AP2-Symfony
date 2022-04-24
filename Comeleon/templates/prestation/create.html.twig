@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formPrestation 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <h1>{% if editMode %}
+            Modifier
+        {% else %}
+            Ajouter la prestation
+        {% endif %}</h1>
+
+    {{ form_start(formPrestation) }}
+
+    {{ form_row(formPrestation.title, {'attr': {'placeholder': "Titre de la prestation"}} ) }}
+
+    {{ form_row(formPrestation.categorie) }}
+
+    {{ form_row(formPrestation.description, {'attr': {'placeholder': "Description de la prestation"}} ) }}
+   
+    {{ form_row(formPrestation.image, {'attr': {'placeholder': "URL de l'image"}} ) }}
+
+    {{form_row(formPrestation.price, {'attr': {'placeholder': "Prix de la prestation"}} ) }}
+
+    <br>
+    <button type="submit" class="btn btn-success">
+        {% if editMode %}
+            Enregistrer les modifications
+        {% else %}
+            Ajouter la prestation
+        {% endif %}
+    </button>
+
+    {{ form_end(formPrestation) }}
+
+{% endblock %}
